@@ -1,2 +1,2 @@
 # Django-Admin
-Django Admin  管理后台
+Django Admin 管理后台
