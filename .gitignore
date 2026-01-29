@@ -1,2 +1,43 @@
 .venv
 admin/__pycache__/
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -restConf`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+/.idea
+/.idea/.gitignore
+/.idea/muse-gateway.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+
+.DS_Store
+*/.DS_Store
+
+core
+
+justfile
+.vscode
+docs/
+memory-bank/
+grafana_metrics.md
+CLAUDE.md
+AGENTS.md
+.air.toml
+tmp/
+
+go.work*
+
+internal/consumer/supvlearning/*.md
+>>>>>>> b6be06feb66e11c0fcb4c1eb5231800f6b500f11
