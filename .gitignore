@@ -1,5 +1,5 @@
 .venv
-admin/__pycache__/
+Django-Admin/__pycache__/
 # Binaries for programs and plugins
 *.exe
 *.exe~
