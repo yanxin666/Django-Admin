@@ -6,11 +6,18 @@ Django Admin 管理后台
 ```
 
 ```shell
+# 进入虚拟环境
+source .venv/bin/activate
+```
+
+```shell
 # 导入依赖
 pip freeze > requirements.txt
+# 安装依赖
+pip install -r requirements.txt
 ```
 
 ```shell
 # 运行项目
-python manage.py runserver
+python3 manage.py runserver
 ```

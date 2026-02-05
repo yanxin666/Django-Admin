@@ -1,5 +1,8 @@
 .venv
-Django-Admin/__pycache__/
+# 字节码缓存文件
+__pycache__/
+*.py[cod]
+*$py.class
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -40,4 +43,3 @@ tmp/
 go.work*
 
 internal/consumer/supvlearning/*.md
->>>>>>> b6be06feb66e11c0fcb4c1eb5231800f6b500f11
