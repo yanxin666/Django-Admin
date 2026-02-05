@@ -28,8 +28,6 @@ __pycache__/
 .DS_Store
 */.DS_Store
 
-core
-
 justfile
 .vscode
 docs/
@@ -39,7 +37,3 @@ CLAUDE.md
 AGENTS.md
 .air.toml
 tmp/
-
-go.work*
-
-internal/consumer/supvlearning/*.md
