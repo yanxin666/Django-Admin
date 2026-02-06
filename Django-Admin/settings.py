@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-
+import os
+import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "apps.customer",
+    "bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,7 @@ ROOT_URLCONF = "Django-Admin.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"], # 自定义模板目录
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -130,7 +132,7 @@ TIME_ZONE = "Asia/Shanghai"
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 USE_L10N = True
 
@@ -139,5 +141,45 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "statics"),
+]
+# settings.py (django-bootstrap5配置示例)
+BOOTSTRAP4 = {
+    # 完整配置见 https://django-bootstrap5.readthedocs.io/en/latest/settings.html
+    "css_url": {
+        "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
+        "integrity": "sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM",
+        "crossorigin": "anonymous",
+    },
+    "javascript_url": {
+        "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js",
+        "integrity": "sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz",
+        "crossorigin": "anonymous",
+    },
+    "theme_url": None,  # 自定义主题URL
+    "javascript_in_head": False,  # JS放在<head>还是<body>末尾
+    "wrapper_class": "mb-3",  # 表单包装器类
+    "inline_wrapper_class": "col-12",  # 内联表单包装器类
+    "horizontal_label_class": "col-sm-2",  # 水平表单标签类
+    "horizontal_field_class": "col-sm-10",  # 水平表单字段类
+    "set_placeholder": True,  # 为表单字段设置placeholder
+    "required_css_class": "",  # 必填字段CSS类
+    "error_css_class": "is-invalid",  # 错误字段CSS类
+    "success_css_class": "is-valid",  # 成功字段CSS类
+    "server_side_validation": True,  # 启用服务器端验证
+    "formset_renderers": {
+        "default": "bootstrap4.renderers.FormsetRenderer",
+    },
+    "form_renderers": {
+        "default": "bootstrap4.renderers.FormRenderer",
+    },
+    "field_renderers": {
+        "default": "bootstrap4.renderers.FieldRenderer",
+    },
+}
 
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240  # 如果遇到字段数量限制
+
+# 设置自定义应用的路径
+# sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))

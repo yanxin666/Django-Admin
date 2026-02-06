@@ -1,0 +1,47 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+{% load bootstrap4 %}
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+
+    <!-- 自动包含Bootstrap CSS -->
+    {% bootstrap_css %}
+
+    <!-- 可选的额外CSS -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- 导航栏示例 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">MySite</a>
+            <!-- 可以在这里添加更多导航项 -->
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="container mt-4">
+        <!-- 显示Django消息 -->
+        {% bootstrap_messages %}
+
+        <!-- 页面内容块 -->
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="mt-5 py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 MySite</span>
+        </div>
+    </footer>
+
+    <!-- 自动包含Bootstrap JS和依赖 -->
+    {% bootstrap_javascript %}
+
+    <!-- 可选的额外JS -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
