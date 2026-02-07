@@ -15,6 +15,8 @@ def testdb(request):
     # 按姓名查询
     customers = CustomerUser.objects.filter(name='李四').last()
     print("按姓名查询：", customers)
+    if customers is None:
+        print("没有找到姓名为李四的客户")
 
     # 按年龄范围查询
     young_customers = CustomerUser.objects.filter(age__lt=30)  # 小于30岁
@@ -31,5 +33,17 @@ def testdb(request):
     recent_customers = CustomerUser.objects.filter(created_at__gte=time1)
     print("一周内创建的客户：", recent_customers)
 
+    # 查找 Id为 1 的客户的所有字段
+    customer = CustomerUser.objects.get(id=1)
+    print("Id为1的客户的全部信息：", customer.__dict__)
+    print("Id为1的客户的姓名：", customer.name)
+    print("Id为1的客户的年龄：", customer.age)
+    print("Id为1的客户的创建时间：", customer.created_at)
 
-    return HttpResponse("<p>数据添加成功！</p>")
+    # 更新 Id为 1 的客户的年龄为 35
+    customer.age = 35
+    customer.save()
+    print("更新后的客户信息：", customer.__dict__)
+
+
+    return HttpResponse("<p>数据操作成功！</p>")

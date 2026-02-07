@@ -37,3 +37,7 @@ CLAUDE.md
 AGENTS.md
 .air.toml
 tmp/
+
+apps/*/migrations/
+apps/*/migrations/*.py
+!apps/*/migrations/__init__.py
